@@ -1,0 +1,23 @@
+[package]
+name = "nylon"
+version = "0.1.0"
+authors = ["Elliot Godzich <elliot@godzi.ch>"]
+edition = "2018"
+license = "MIT"
+description = "An async/.await based job system where futures live in fibers that are run on core-pinned threads."
+documentation = "https://docs.rs/nylon/0.1.0/nylon/"
+repository = "https://github.com/rope-bridge/nylon"
+homepage = "https://github.com/rope-bridge/nylon"
+readme = "README.md"
+keywords = ["fibers", "threads", "affinity", "job", "futures"]
+categories = ["asynchronous", "concurrency"]
+
+[dependencies]
+core_affinity = "0.5"
+futures = "0.3"
+
+[target.'cfg(any(target_os = "linux", target_os = "macos"))'.dependencies]
+libc = "0.2"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winapi = "0.3"
